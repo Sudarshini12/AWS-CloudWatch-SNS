@@ -1,0 +1,38 @@
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/QuickStartEC2Instance.html
+
+
+To configure your IAM role or user for CloudWatch Logs
+Open the IAM console at https://console.aws.amazon.com/iam/
+
+In the navigation pane, choose Roles.
+
+Choose the role by selecting the role name (do not select the check box next to the name).
+
+Choose Attach Policies, Create Policy.
+
+A new browser tab or window opens.
+
+Choose the JSON tab and type the following JSON policy document.
+ {
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents",
+        "logs:DescribeLogStreams"
+    ],
+      "Resource": [
+        "*"
+    ]
+  }
+ ]
+}
+
+Install and configure CloudWatch Logs on an existing Amazon EC2 instance
+
+sudo yum update -y
+
+sudo yum install -y awslogs
